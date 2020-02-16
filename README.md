@@ -1,2 +1,1 @@
-# Porao
-Book sharing and donating platform
+This file contains refernce used for the website
