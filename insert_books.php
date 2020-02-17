@@ -3,31 +3,40 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 include 'config.php';
 
-$title=$_POST["book_title"];
-$author = $_POST["author"];
-$edition = $_POST["edition"];
-$category=$_POST["category"];
-$description = $_POST["description"];
-$qty = $_POST["qty"];
-$photo = $_POST["photo"];
-echo $_SESSION["type"];
-if($_SESSION["type"]==="user" ) {
-   
-        $mysqli->query("INSERT INTO  books( title,author,edition, category,type,qty,image, description) VALUES('$title', '$author', $edition ,'$category','donate',$qty, '$photo', '$description')");
-             header ("location:donate.php");
+$title= isset($_POST["book_title"]) ? $_POST["book_title"] : '';
+$author = isset($_POST["author"]) ? $_POST["author"] : '';
+$edition = isset($_POST["edition"]) ? $_POST["edition"] : '';
+$category= isset($_POST["category"]) ? $_POST["category"] : '';
+$description = isset($_POST["description"]) ? $_POST["description"] : '';
+$qty = isset($_POST["qty"]) ? $_POST["qty"] : '';
+$bookcondition = isset($_POST["bookcondition"]) ? $_POST["bookcondition"] : '';
+$price = isset($_POST["price"]) ? $_POST["price"] : '';
+$photo = isset($_POST["photo"]) ? $_POST["photo"] : '';
+$pickup = isset($_POST["pickup"]) ? $_POST["pickup"] : '';
+$type = isset($_POST["type"]) ? $_POST["type"] : '';
+$userid = $_SESSION['id'];
 
-         }
+echo $type;
+
+if($type === "share" ) {
+        if($mysqli->query("INSERT INTO  sharebooks (userid, title, author, edition, bookcondition, price, qty, category, image, description, pickupplace) VALUES('$userid', '$title', '$author', '$edition' ,'$bookcondition','$price',$qty, '$category', '$photo', '$description' , '$pickup')")){
+            echo 'Yes';
+        }
+}
         
-else {
+else if($type === "donate" ){
     
+    if($mysqli->query("INSERT INTO  donatebooks (userid, title, author, edition, category, image, description, pickupplace) VALUES('$userid', '$title', '$author', '$edition' ,'$category', '$photo', '$description' , '$pickup')")){
+        echo 'Yes';
+    }
 
-    $mysqli->query("INSERT INTO  books( title,author,edition, category,qty, image, description) VALUES('$title', '$author', $edition ,'$category',qty, '$photo', '$description')");
+    // $mysqli->query("INSERT INTO  books( title,author,edition, category,qty, image, description) VALUES('$title', '$author', $edition ,'$category',qty, '$photo', '$description')");
 
-    echo 'Data inserted';
-    echo $_SESSION["type"];
-    echo '<br/>';
+    // echo 'Data inserted';
+    // echo $_SESSION["type"];
+    // echo '<br/>';
     
-         header ("location:add.php");
+    //      header ("location:add.php");
 
 }
 

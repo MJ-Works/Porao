@@ -41,8 +41,8 @@ include 'config.php';
 
           if(isset($_SESSION['username'])){
             
-            echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
-            echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
+            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li class="active"><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li><a href="req_admin.php">Requested Books</a></li>';
             echo '<li><a href="donate_admin.php">Donated Books</a></li>';
             echo '<li><a href="view.php">View Books</a></li>';
@@ -61,7 +61,7 @@ include 'config.php';
     <form method="POST" action="insert_books.php" style="margin-top:30px;">
       <div class="row">
         <div class="small-8">
-          <input type="hidden" value ="share" id="right-label"  name="type">
+          <input type="hidden" value ="donate" id="right-label"  name="type">
           <div class="row">
             <div class="small-4 columns">
               <label for="right-label" class="right inline">Book Title</label>
@@ -88,38 +88,11 @@ include 'config.php';
           </div>
           <div class="row">
             <div class="small-4 columns">
-              <label for="right-label" class="right inline">Book Condition</label>
-            </div>
-            <div class="small-8 columns">
-              <input type="text" id="right-label"  name="bookcondition">
-            </div>
-          </div>
-          <div class="row">
-            <div class="small-4 columns">
               <label for="right-label" class="right inline">Category</label>
             </div>
             <div class="small-8 columns">
               <input type="text" id="right-label"  name="category">
             </div>
-          </div>
-          
-          <div class="row">
-            <div class="small-4 columns">
-              <label for="right-label" class="right inline">Price</label>
-            </div>
-            <div class="small-8 columns">
-              <input type="text" id="right-label"  name="price">
-            </div>
-            
-          </div>
-          <div class="row">
-            <div class="small-4 columns">
-              <label for="right-label" class="right inline">Quantity</label>
-            </div>
-            <div class="small-8 columns">
-              <input type="text" id="right-label"  name="qty">
-            </div>
-            
           </div>
 
           <div class="row">

@@ -38,6 +38,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
            if(($_SESSION['type'])==='admin'){
             echo '<li><a href="orders.php">All Orders</a></li>';
             echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li><a href="req_admin.php">Requested Books</a></li>';
             echo '<li><a href="donate_admin.php">Donated Books</a></li>';
             echo '<li ><a href="view.php">View Books</a></li>';
