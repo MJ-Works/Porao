@@ -51,6 +51,9 @@ CREATE TABLE IF NOT EXISTS `donatebooks` (
   `title` varchar(255) ,
   `author` varchar(255) ,
   `edition` varchar(255)  ,
+  `bookcondition` varchar(255)  ,
+  `price` int  ,
+  `qty`  int,
   `category` varchar(255)  ,
   `image` varchar(255) ,
   `description` text ,
@@ -79,18 +82,22 @@ CREATE TABLE IF NOT EXISTS `sharebooks` (
 CREATE TABLE IF NOT EXISTS `shareoffers` (
   `id` int(11) auto_increment ,
   `bookid` int,
+  `userid` int,
   `description` text ,
     PRIMARY KEY  (`id`),
-    FOREIGN KEY (bookid) REFERENCES sharebooks(id)
+    FOREIGN KEY (bookid) REFERENCES sharebooks(id),
+    FOREIGN KEY (userid) REFERENCES users(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ;
 
 
-CREATE TABLE IF NOT EXISTS `doanteoffers` (
+CREATE TABLE IF NOT EXISTS `donateoffers` (
   `id` int(11) auto_increment ,
   `bookid` int,
+   `userid` int,
   `description` text ,
     PRIMARY KEY  (`id`),
-    FOREIGN KEY (bookid) REFERENCES donatebooks(id)
+    FOREIGN KEY (bookid) REFERENCES donatebooks(id),
+    FOREIGN KEY (userid) REFERENCES users(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ;
 
 --

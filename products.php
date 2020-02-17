@@ -35,7 +35,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Book Rental Service</a></h1>
+          <h1><a href="index.php">Book Rentals Service</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -45,13 +45,12 @@ include 'config.php';
         <ul class="right">
           <li><a href="about.php">About</a></li>
           <li class='active'><a href="products.php">Books</a></li>
-          <li><a href="contact.php">Contact</a></li>
           
           <?php
           if(isset($_SESSION['username'])){
            if(($_SESSION['type'])==='admin'){
             echo '<li><a href="orders.php">All Orders</a></li>';
-            echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li><a href="req_admin.php">Requested Books</a></li>';
             echo '<li><a href="donate_admin.php">Donated Books</a></li>';
@@ -89,7 +88,7 @@ include 'config.php';
           $product_id = array();
           $product_quantity = array();
 
-          $result = $mysqli->query("SELECT * FROM books where type='admin'");
+          $result = $mysqli->query("SELECT * FROM donatebooks union SELECT * from sharebooks");
           if($result === FALSE){
             die(mysql_error());
           }
@@ -100,29 +99,24 @@ include 'config.php';
               echo '<div style="background-color:#CCDADA; margin-top:30px;" class="columns">';
               echo '<p ><h3 style="color: #000000;text-align:center;"><b>'.$obj->title.'</h3></b></p>';
               echo '<img src="images/products/'.$obj->image.'". width=250px height=250px align="left" hspace="20" />';
+              if(isset($obj->price))
+                  echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Sell/Exchange</p>';
+              else echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Donation</p>';
               echo '<p style="color: #000000;margin-top:10px;"> <strong>Author</strong>: '.$obj->author.'</p>';
               echo '<p style="color: #000000;margin-top:10px;"> <strong>Description</strong>: <br />'.$obj->description.'</p>';
-              echo '<p style="color: #000000"><strong>Price</strong> : '.$obj->price.'</p>';
-              echo '<p style="color: #000000"><strong>Available Units</strong> : '.$obj->qty.'</p>';
+              if(isset($obj->price)) echo '<p style="color: #000000"><strong>Asking Price</strong> : '.$obj->price.'</p>';
+              if(isset($obj->price)) echo '<p style="color: #000000"><strong>Available Units</strong> : '.$obj->qty.'</p>';
               echo '<p style="color: #000000"><strong>Category</strong> : '.$obj->category.'</p>';
 
               // <form>
               //    <input type="text" id="number" value="0"/>
               //    <input type="button" onclick="incrementValue()" value="Increment Value" />
               // </form>
-               
 
-
-               
-
-
-              if($obj->qty > 0){
-                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Add To Cart" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-                
-              }
-              else {
-                echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
-              }
+                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+              // else {
+              //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
+              // }
               echo '<p> <br/><br/><br/></p>';
               echo '</div> ';
 
