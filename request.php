@@ -17,7 +17,7 @@ include 'config.php';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register || Book Rental Service</title>
+    <title>Register || Online book Sharing Platform "Porao"</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -36,7 +36,7 @@ include 'config.php';
         <ul class="right">
         <li><a href="about.php">About</a></li>
           <li><a href="products.php">Books</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          
           <?php
 
           if(isset($_SESSION['username'])){
@@ -122,7 +122,7 @@ include 'config.php';
       <div class="small-12">
 
         <footer>
-           <p style="text-align:center; font-size:0.8em;">&copy; Book Rental Service. All Rights Reserved.</p>
+           <p style="text-align:center; font-size:0.8em;">&copy; Online book Sharing Platform "Porao". All Rights Reserved.</p>
         </footer>
 
       </div>

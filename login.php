@@ -15,7 +15,7 @@ if(isset($_SESSION["username"])){
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login || Book Rental Service</title>
+    <title>Login || Online book Sharing Platform "Porao"</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/login.css" />
     <script src="js/vendor/modernizr.js"></script>
@@ -26,7 +26,7 @@ if(isset($_SESSION["username"])){
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Book Rental Service</a></h1>
+          <h1><a href="index.php">Online book Sharing Platform "Porao"</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -36,7 +36,7 @@ if(isset($_SESSION["username"])){
         <ul class="right">
           <li><a href="about.php">About</a></li>
           <li><a href="products.php">Books</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          
           <?php
 
           if(isset($_SESSION['username'])){
@@ -74,7 +74,7 @@ if(isset($_SESSION["username"])){
       <div class="sub-cont">
         <div class="img">
           <div class="img__text m--up">
-            <h1>Book Rental Service</h1>
+            <h1>Online book Sharing Platform "Porao"</h1>
             <p>Register and rent great books online!</p>
             <h1>|</h1>
             <h1>|</h1>
@@ -98,7 +98,7 @@ if(isset($_SESSION["username"])){
       <div class="small-12">
 
         <footer>
-           <p style="text-align:center; font-size:0.8em;">&copy; Book Rental Service. All Rights Reserved.</p>
+           <p style="text-align:center; font-size:0.8em;">&copy; Online book Sharing Platform "Porao". All Rights Reserved.</p>
         </footer>
 
       </div>

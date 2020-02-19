@@ -35,7 +35,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Book Rentals Service</a></h1>
+          <h1><a href="index.php">Online book Sharing Platform "Porao"</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -113,7 +113,8 @@ include 'config.php';
               //    <input type="button" onclick="incrementValue()" value="Increment Value" />
               // </form>
 
-                echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+              if(isset($_SESSION['username']))
+                  echo '<p><a href="update-cart.php?action=add&id='.$obj->id.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
               // else {
               //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
               // }

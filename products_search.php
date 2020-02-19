@@ -38,7 +38,7 @@ include 'config.php';
           <li class='active'><a href="products.php">Books</a></li>
           <li><a href="cart.php">Cart</a></li>
           <li><a href="orders.php">My Orders</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          
           <?php
 
           if(isset($_SESSION['username'])){

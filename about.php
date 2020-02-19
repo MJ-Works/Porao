@@ -12,7 +12,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us || Book Rental Service</title>
+    <title>About Us || Online book Sharing Platform "Porao"</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -21,7 +21,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Book Rental Service</a></h1>
+          <h1><a href="index.php">Online book Sharing Platform "Porao"</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -31,7 +31,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         <ul class="right">
            <li class='active'><a href="about.php">About</a></li>
           <li ><a href="products.php">Books</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          
           
           <?php
           if(isset($_SESSION['username'])){
@@ -70,10 +70,10 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
     <div class="row" style="margin-top:30px;">
       <div class="small-12">
-        <h1>Book Rental Service is a web application,developed our group in the software engineering course under <b> Prof B.Thangaraju sir</b> .</h1></div> </h1>
+        <h1>Online book Sharing Platform "Porao" is a web application, developed by <b> Lamia Jabin Rimty </b> for final year masters course under <b> mama sir</b> .</h1></div> </h1>
        
         <footer>
-           <p style="text-align:center; font-size:0.8em;">&copy; Book Rental Service. All Rights Reserved.</p>
+           <p style="text-align:center; font-size:0.8em;">&copy; Online book Sharing Platform "Porao". All Rights Reserved.</p>
         </footer>
 
       </div>

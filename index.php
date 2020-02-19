@@ -49,7 +49,7 @@ if( isset($_SESSION["username"]) && $_SESSION["type"]==="admin") {
         <ul class="right">
           <li><a href="about.php">About</a></li>
           <li><a href="products.php">Books</a></li>
-          <li><a href="contact.php">Contact</a></li>
+          
           <?php
 
           if(isset($_SESSION['username'])){
