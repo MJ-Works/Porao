@@ -47,17 +47,17 @@ include 'config.php';
           <?php
           if(isset($_SESSION['username'])){
            if(($_SESSION['type'])==='admin'){
-            echo '<li><a href="orders.php">All Orders</a></li>';
+            echo '<li><a href="requests.php">Your Requests</a></li>';
             echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
-            echo '<li><a href="req_admin.php">Requested Books</a></li>';
-            echo '<li><a href="donate_admin.php">Donated Books</a></li>';
-            echo '<li ><a href="view.php">View Books</a></li>';
-            echo '<li><a href="users_info.php">View Users</a></li>';
+            
+            
+           echo '<li ><a href="yourbooks.php">Your Books</a></li>';
+            
            
           }
           else if(($_SESSION['type'])==='user'){
-            echo '<li><a href="cart.php">Cart</a></li>';
+            
             echo '<li><a href="orders.php">My Orders</a></li>';
             echo '<li><a href="donate.php">Donate Book</a></li>';
               echo '<li><a href="request.php">Request Book</a></li>';

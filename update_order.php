@@ -26,7 +26,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Book Rentals Service</a></h1>
+          <h1><a href="index.php">Online book Sharing Platform "Porao"</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -43,10 +43,10 @@ include 'config.php';
             
             echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
-            echo '<li><a href="req_admin.php">Requested Books</a></li>';
-            echo '<li><a href="donate_admin.php">Donated Books</a></li>';
-            echo '<li ><a href="view.php">View Books</a></li>';
-            echo '<li><a href="users_info.php">View Users</a></li>';
+            
+            
+           echo '<li ><a href="yourbooks.php">Your Books</a></li>';
+            
             echo '<li><a href="logout.php">Log Out</a></li>';
           }
           else{

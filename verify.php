@@ -21,7 +21,7 @@ if($result){
     if($obj->email === $username && $obj->password === $password) {
 
       $_SESSION['username'] = $username;
-      $_SESSION['type'] = $obj->type;
+      $_SESSION['type'] = 'admin';
       $_SESSION['id'] = $obj->id;
       $_SESSION['fname'] = $obj->fname;
       header("location:index.php");

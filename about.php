@@ -12,7 +12,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us || Online book Sharing Platform "Porao"</title>
+    <title>Register || Online book Sharing Platform "Porao"</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -29,31 +29,15 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-           <li class='active'><a href="about.php">About</a></li>
-          <li ><a href="products.php">Books</a></li>
-          
-          
+        <li   class="active"><a href="about.php">About</a></li>
+          <li><a href="products.php">Books</a></li>
+          echo '<li><a href="requests.php">Your Requests</a></li>';
           <?php
-          if(isset($_SESSION['username'])){
-           if(($_SESSION['type'])==='admin'){
-            echo '<li><a href="orders.php">All Orders</a></li>';
-            echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
-            echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
-            echo '<li><a href="req_admin.php">Requested Books</a></li>';
-            echo '<li><a href="donate_admin.php">Donated Books</a></li>';
-            echo '<li ><a href="view.php">View Books</a></li>';
-            echo '<li><a href="users_info.php">View Users</a></li>';
-           
-          }
-          else if(($_SESSION['type'])==='user'){
-            echo '<li><a href="cart.php">Cart</a></li>';
-            echo '<li><a href="orders.php">My Orders</a></li>';
-            echo '<li><a href="donate.php">Donate Book</a></li>';
-              echo '<li><a href="request.php">Request Book</a></li>';
-            echo '<li><a href="account.php">My Account</a></li>';
 
-          }
-          
+          if(isset($_SESSION['username'])){
+            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
+            echo '<li ><a href="yourbooks.php">Your Books</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
           }
           else{
@@ -64,9 +48,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
         </ul>
       </section>
     </nav>
-
-
-
 
     <div class="row" style="margin-top:30px;">
       <div class="small-12">

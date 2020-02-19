@@ -56,7 +56,7 @@ if( isset($_SESSION["username"]) && $_SESSION["type"]==="admin") {
             
             if($_SESSION["type"]==="user")
             {
-              echo '<li><a href="cart.php">Cart</a></li>';
+              
               echo '<li><a href="orders.php">My Orders</a></li>';
               echo '<li><a href="donate.php">Donate Book</a></li>';
               echo '<li><a href="request.php">Request Book</a></li>';

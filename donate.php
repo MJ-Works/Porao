@@ -26,7 +26,7 @@ include 'config.php';
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="index.php">Book Rentals Service</a></h1>
+          <h1><a href="index.php">Online book Sharing Platform "Porao"</a></h1>
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
       </ul>
@@ -44,7 +44,7 @@ include 'config.php';
             if($_SESSION["type"]==="user")
             {
               
-              echo '<li><a href="cart.php">Cart</a></li>';
+              
               echo '<li><a href="orders.php">My Orders</a></li>';
               echo '<li class ="active"><a href="donate.php">Donate Book</a></li>';
               echo '<li><a  href="request.php">Request Book</a></li>';

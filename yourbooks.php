@@ -4,14 +4,11 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 include 'config.php';
 
-
- 
-
+$userid = $_SESSION['id'];
 
 // header("location:cart.php");
 ?>
-
-    <!doctype html>
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -42,15 +39,15 @@ include 'config.php';
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-        <li><a  href="about.php">About</a></li>
-          <li   class="active"><a href="products.php">Books</a></li>
+        <li><a   class="active" href="about.php">About</a></li>
+          <li><a href="products.php">Books</a></li>
           echo '<li><a href="requests.php">Your Requests</a></li>';
           <?php
 
           if(isset($_SESSION['username'])){
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
-            echo '<li ><a href="yourbooks.php">Your Books</a></li>';
+            echo '<li class="active"><a href="yourbooks.php">Your Books</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
           }
           else{
@@ -69,7 +66,7 @@ include 'config.php';
           $product_id = array();
           $product_quantity = array();
 
-          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks union SELECT *, 'share' as type from sharebooks");
+          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks where userid = $userid union SELECT *, 'share' as type from sharebooks where userid =  $userid");
           if($result === FALSE){
             die(mysql_error());
           }
@@ -95,7 +92,7 @@ include 'config.php';
               // </form>
 
               if(isset($_SESSION['username']))
-                  echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+                  echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="See Requests" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
               // else {
               //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
               // }

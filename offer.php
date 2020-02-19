@@ -3,6 +3,11 @@
 //if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
+include 'config.php';
+
+$bookid = $_GET['id'];
+$type = $_GET['type'];
+
 ?>
 
 <!doctype html>
@@ -10,7 +15,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact || Online book Sharing Platform "Porao"</title>
+    <title>Register || Online book Sharing Platform "Porao"</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -27,31 +32,15 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-           <li><a href="about.php">About</a></li>
+        <li><a href="about.php">About</a></li>
           <li><a href="products.php">Books</a></li>
-          <li class='active'><a href="contact.php">Contact</a></li>
-          
+          echo '<li><a href="requests.php">Your Requests</a></li>';
           <?php
-          if(isset($_SESSION['username'])){
-           if(($_SESSION['type'])==='admin'){
-            echo '<li><a href="requests.php">Your Requests</a></li>';
-            echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
-            echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
-            
-            
-           echo '<li ><a href="yourbooks.php">Your Books</a></li>';
-            
-           
-          }
-          else if(($_SESSION['type'])==='user'){
-            
-            echo '<li><a href="orders.php">My Orders</a></li>';
-            echo '<li><a href="donate.php">Donate Book</a></li>';
-              echo '<li><a href="request.php">Request Book</a></li>';
-            echo '<li><a href="account.php">My Account</a></li>';
 
-          }
-          
+          if(isset($_SESSION['username'])){
+            
+            echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li ><a href="yourbooks.php">Your Books</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
           }
           else{
@@ -63,20 +52,30 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       </section>
     </nav>
 
+    <form method="POST" action="saveoffer.php?bookid=<?php echo $bookid;?>&type=<?php echo $type;?>" style="margin-top:30px;">
+      <div class="row">
+        <div class="small-8">
+
+          <div class="row">
+        
+            <div class="row">
+                    <div class="form-group col-md-6">
+                <label for="description">Description</label>
+                <textarea class="form-control" name="description" id="description" rows="6"></textarea>
+            </div>
+            
+          </div>
+             <div class="small-8 columns">
+              <input type="submit" id="right-label" value="Add Books" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
 
 
-
-    <div class="row" style="margin-top:30px;">
+    <div class="row" style="margin-top:10px;">
       <div class="small-12">
-
-        <h1>Software Engineering Project</h1>
-        <h2>International Institute of Information Technology, Bangalore</h2>
-        <p>Contact the authors through GitHub</p>
-        <p><a href="https://github.com/RohithYogi">Rohith Yogi</a></p>
-        <p><a href="https://github.com/Siddarth5199">Siddarth Reddy</a></p>
-        <p><a href="https://github.com/k-puneeth">Srujan Swaroop</a></p>
-        <p><a href="https://github.com/Srujan-Swaroop">Puneeth</a></p>
-
 
         <footer>
            <p style="text-align:center; font-size:0.8em;">&copy; Online book Sharing Platform "Porao". All Rights Reserved.</p>
@@ -84,9 +83,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
       </div>
     </div>
-
-
-
 
 
 
