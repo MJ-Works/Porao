@@ -16,18 +16,16 @@ $pickup = isset($_POST["pickup"]) ? $_POST["pickup"] : '';
 $type = isset($_POST["type"]) ? $_POST["type"] : '';
 $userid = $_SESSION['id'];
 
-echo $type;
-
 if($type === "share" ) {
         if($mysqli->query("INSERT INTO  sharebooks (userid, title, author, edition, bookcondition, price, qty, category, image, description, pickupplace) VALUES('$userid', '$title', '$author', '$edition' ,'$bookcondition','$price',$qty, '$category', '$photo', '$description' , '$pickup')")){
-            echo 'Yes';
+            header ("location:yourbooks.php");
         }
 }
         
 else if($type === "donate" ){
     
     if($mysqli->query("INSERT INTO  donatebooks (userid, title, author, edition, category, image, description, pickupplace) VALUES('$userid', '$title', '$author', '$edition' ,'$category', '$photo', '$description' , '$pickup')")){
-        echo 'Yes';
+        header ("location:yourbooks.php");
     }
 
     // $mysqli->query("INSERT INTO  books( title,author,edition, category,qty, image, description) VALUES('$title', '$author', $edition ,'$category',qty, '$photo', '$description')");

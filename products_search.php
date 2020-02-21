@@ -4,10 +4,6 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 include 'config.php';
 
-
- 
-
-
 // header("location:cart.php");
 ?>
 

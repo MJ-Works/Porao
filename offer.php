@@ -39,7 +39,7 @@ $type = $_GET['type'];
 
           if(isset($_SESSION['username'])){
             
-            echo '<li class="active"><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
           }
@@ -66,7 +66,7 @@ $type = $_GET['type'];
             
           </div>
              <div class="small-8 columns">
-              <input type="submit" id="right-label" value="Add Books" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
+              <input type="submit" id="right-label" value="Place Request" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
             </div>
           </div>
         </div>

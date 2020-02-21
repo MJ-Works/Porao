@@ -57,11 +57,9 @@ include 'config.php';
             
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
-            
-            
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
-            
             echo '<li><a href="logout.php">Log Out</a></li>';
+            
           }
           else{
             echo '<li><a href="login.php">Log In</a></li>';

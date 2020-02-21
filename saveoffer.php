@@ -12,14 +12,12 @@ echo("INSERT INTO donateoffers (bookid, userid, success, description) VALUES($bo
 
 if($type == 'donate') {
     if($mysqli->query("INSERT INTO donateoffers (bookid, userid, success, description) VALUES($bookid, $userid, 0, '$description')")){
-        echo 'Data inserted';
-        echo '<br/>';
+        header ("location:requests.php");
     }
 }
 else if($type == 'share') {
     if($mysqli->query("INSERT INTO shareoffers (bookid, userid, success, description) VALUES($bookid, $userid, 0, '$description')")){
-        echo 'Data inserted';
-        echo '<br/>';
+        header ("location:requests.php");
     }
 }
 
