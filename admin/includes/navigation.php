@@ -16,7 +16,7 @@
 				
 				<li><a href="brands.php">Brands</a></li>
 				<li><a href="categories.php">Categories</a></li>
-				<li><a href="products.php">Products</a></li>
+				<li><a href="books.php">Products</a></li>
 				<!-- <li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $parent['category']; ?> <span class="caret"></span></a>
 					<ul class="dropdown-menu">

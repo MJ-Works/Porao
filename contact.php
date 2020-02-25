@@ -28,7 +28,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <!-- Right Nav Section -->
         <ul class="right">
            <li><a href="about.php">About</a></li>
-          <li><a href="products.php">Books</a></li>
+          <li><a href="books.php">Books</a></li>
           <li class='active'><a href="contact.php">Contact</a></li>
           
           <?php

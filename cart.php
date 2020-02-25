@@ -31,7 +31,7 @@ include 'config.php';
       <!-- Right Nav Section -->
         <ul class="right">
            <li><a href="about.php">About</a></li>
-          <li><a href="products.php">Books</a></li>
+          <li><a href="books.php">Books</a></li>
           
           
           <?php
@@ -118,7 +118,7 @@ include 'config.php';
           echo '</tr>';
 
           echo '<tr>';
-          echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="button alert">Empty Cart</a>&nbsp;<a href="products.php" class="button [secondary success alert]">Continue Shopping</a>';
+          echo '<td colspan="4" align="right"><a href="update-cart.php?action=empty" class="button alert">Empty Cart</a>&nbsp;<a href="books.php" class="button [secondary success alert]">Continue Shopping</a>';
           if(isset($_SESSION['username'])) {
             echo '<a href="orders-update.php"><button style="float:right;">COD</button></a>';
           }

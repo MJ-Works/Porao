@@ -88,7 +88,7 @@
 				move_uploaded_file($tmpLoc, $uploadPath);
 				$insertSql = "INSERT INTO products (title, price, list_price, brand, categories, image, description, sizes) VALUES ('{$title}', '{$price}', '{$list_price}', '{$brand}', '{$categories}', '{$dbpath}', '{$description}', '{$sizes}')";
 				$db->query($insertSql);
-				header("Location: products.php");
+				header("Location: books.php");
 			}
 		}
 ?>
@@ -98,7 +98,7 @@
 <h2 class="text-center"><?php echo ((isset($_GET['edit']))?'Edit' : 'Add A New'); ?> Product</h2>
 <hr>
 
-<form class="form" action="products.php?<?php echo ((isset($_GET['edit']))?'edit='.$edit_id : 'add=1'); ?>" method="post" enctype="multipart/form-data">
+<form class="form" action="books.php?<?php echo ((isset($_GET['edit']))?'edit='.$edit_id : 'add=1'); ?>" method="post" enctype="multipart/form-data">
 	<div class="form-group col-md-3">
 		<label for="title">Title*:</label>
 		<input class="form-control" type="text" name="title" id="title" value="<?php echo $title; ?>">
@@ -150,7 +150,7 @@
 		<textarea class="form-control" name="description" id="description" rows="6"><?php echo ((isset($_POST['description']))?sanitize($_POST['description']) : ''); ?></textarea>
 	</div>
 	<div class="form-group pull-right clearfix">
-		<a class="btn btn-default" href="products.php">Cancel</a>
+		<a class="btn btn-default" href="books.php">Cancel</a>
 		<input class="btn btn-success" type="submit" value="<?php echo ((isset($_GET['edit']))?'Edit' : 'Add'); ?> Product">
 	</div>
 	<div class="clearfix"></div>
@@ -196,14 +196,14 @@
 		$id = (int)$_GET['id'];
 		$featured = (int)$_GET['featured'];
 		$db->query("UPDATE products SET featured = '{$featured}' WHERE id = '{$id}'");
-		header("Location: products.php");
+		header("Location: books.php");
 	}
 ?>
 
 
 <!-- Table -->
 <h2 class="text-center">Products</h2>
-<a class="btn btn-success pull-right" id="add-product-btn" href="products.php?add=1">Add Product</a>
+<a class="btn btn-success pull-right" id="add-product-btn" href="books.php?add=1">Add Product</a>
 <div class="clearfix"></div>
 <hr>
 
@@ -228,14 +228,14 @@
 		?>
 		<tr>
 			<td>
-				<a class="btn btn-xs btn-default" href="products.php?edit=<?php echo $product['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-				<a class="btn btn-xs btn-default" href="products.php?delete=<?php echo $product['id']; ?>"><span class="glyphicon glyphicon-remove"></span></a>
+				<a class="btn btn-xs btn-default" href="books.php?edit=<?php echo $product['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+				<a class="btn btn-xs btn-default" href="books.php?delete=<?php echo $product['id']; ?>"><span class="glyphicon glyphicon-remove"></span></a>
 			</td>
 			<td><?php echo $product['title']; ?></td>
 			<td><?php echo money($product['price']); ?></td>
 			<td><?php echo $category; ?></td>
 			<td>
-				<a class="btn btn-xs btn-default" href="products.php?featured=<?php echo (($product['featured'] == 0)?'1' : '0'); ?>&id=<?php echo $product['id']; ?>"><span class="glyphicon glyphicon-<?php echo (($product['featured'] == 1)?'minus': 'plus'); ?>"></span></a>&nbsp; <?php echo (($product['featured'] == 1)?'Featured Product' : ''); ?>
+				<a class="btn btn-xs btn-default" href="books.php?featured=<?php echo (($product['featured'] == 0)?'1' : '0'); ?>&id=<?php echo $product['id']; ?>"><span class="glyphicon glyphicon-<?php echo (($product['featured'] == 1)?'minus': 'plus'); ?>"></span></a>&nbsp; <?php echo (($product['featured'] == 1)?'Featured Product' : ''); ?>
 			</td>
 			<td>0</td>
 		</tr>

@@ -30,7 +30,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
       <!-- Right Nav Section -->
         <ul class="right">
         <li   class="active"><a href="about.php">About</a></li>
-          <li><a href="products.php">Books</a></li>
+          <li><a href="books.php">Books</a></li>
           echo '<li><a href="requests.php">Your Requests</a></li>';
           <?php
 

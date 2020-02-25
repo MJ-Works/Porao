@@ -31,7 +31,7 @@ if (isset($_SESSION["username"])) {header ("location:index.php");}
       <!-- Right Nav Section -->
         <ul class="right">
           <li><a href="about.php">About</a></li>
-          <li><a href="products.php">Books</a></li>
+          <li><a href="books.php">Books</a></li>
           
           <?php
 
