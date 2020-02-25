@@ -4,7 +4,7 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 if( isset($_SESSION["username"]) && $_SESSION["type"]==="admin") {
-  header("location:admin.php");
+  header("location:home.php");
 }
 
 ?>

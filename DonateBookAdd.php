@@ -40,7 +40,7 @@ include 'config.php';
           <?php
 
           if(isset($_SESSION['username'])){
-            echo '<li><a href="admin.php">Home</a></li>';
+            echo '<li><a href="home.php">Home</a></li>';
 echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li class="active"><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';

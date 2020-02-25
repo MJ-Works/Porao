@@ -9,9 +9,9 @@ if(!isset($_SESSION["username"])) {
   header("Refresh: 3; url=index.php");
 }
 
-if($_SESSION["type"]==="admin") {
-  header("location:admin.php");
-}
+// if($_SESSION["type"]==="admin") {
+//   header("location:home.php");
+// }
 
 include 'config.php';
 
