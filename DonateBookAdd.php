@@ -23,7 +23,7 @@ include 'config.php';
   </head>
   <body>
 
-    <nav class="top-bar" data-topbar role="navigation">
+  <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
           <h1><a href="index.php">Online book Sharing Platform "Porao"</a></h1>
@@ -34,17 +34,17 @@ include 'config.php';
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-        <li><a href="about.php">About</a></li>
-          <li><a href="books.php">Books</a></li>
-          echo '<li><a href="requests.php">Your Requests</a></li>';
           <?php
-
           if(isset($_SESSION['username'])){
             echo '<li><a href="home.php">Home</a></li>';
-echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
-            echo '<li class="active"><a href="DonateBookAdd.php">Donate Book</a></li>';
+            echo '<li><a href="books.php">Books</a></li>';
+            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li  class="active"><a href="DonateBookAdd.php">Donate Book</a></li>';
+            echo '<li><a href="requests.php">Your Requests</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
+            echo '<li><a href="about.php">About</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
+            
           }
           else{
             echo '<li><a href="login.php">Log In</a></li>';
@@ -54,7 +54,6 @@ echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
         </ul>
       </section>
     </nav>
-
     <form method="POST" action="insert_books.php" style="margin-top:30px;">
       <div class="row">
         <div class="small-8">

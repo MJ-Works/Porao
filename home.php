@@ -48,17 +48,15 @@ include 'config.php';
       <section class="top-bar-section">
       <!-- Right Nav Section -->
         <ul class="right">
-          <li><a href="about.php">About</a></li>
-          <li><a href="books.php">Books</a></li>
-          echo '<li><a href="requests.php">Your Requests</a></li>';
           <?php
-
           if(isset($_SESSION['username'])){
-            
             echo '<li class="active"><a href="home.php">Home</a></li>';
+            echo '<li><a href="books.php">Books</a></li>';
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
+            echo '<li><a href="requests.php">Your Requests</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
+            echo '<li><a href="about.php">About</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
             
           }
