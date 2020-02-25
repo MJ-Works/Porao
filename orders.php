@@ -41,7 +41,8 @@ include 'config.php';
           <?php
           if(isset($_SESSION['username'])){
            if(($_SESSION['type'])==='admin'){
-            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li><a href="admin.php">Home</a></li>';
+echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
             
             

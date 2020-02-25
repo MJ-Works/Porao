@@ -39,7 +39,8 @@ $type = $_GET['type'];
 
           if(isset($_SESSION['username'])){
             
-            echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
+            echo '<li><a href="admin.php">Home</a></li>';
+echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
             echo '<li><a href="logout.php">Log Out</a></li>';
           }

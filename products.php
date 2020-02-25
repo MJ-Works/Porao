@@ -48,6 +48,7 @@ include 'config.php';
           <?php
 
           if(isset($_SESSION['username'])){
+            echo '<li><a href="admin.php">Home</a></li>';
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
@@ -68,8 +69,14 @@ include 'config.php';
           $i=0;
           $product_id = array();
           $product_quantity = array();
+          $userid = $_SESSION['id'];
 
-          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks union SELECT *, 'share' as type from sharebooks");
+          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks where id not in(
+            SELECT bookid FROM `donateoffers` where userid = '$userid')
+            UNION
+            SELECT *, 'share' as type FROM sharebooks where id not in(
+            SELECT bookid FROM `shareoffers` where userid = '$userid') and qty > 0");
+
           if($result === FALSE){
             die(mysql_error());
           }

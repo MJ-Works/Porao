@@ -39,6 +39,7 @@ include 'config.php';
           <?php
 
           if(isset($_SESSION['username'])){
+            echo '<li><a href="admin.php">Home</a></li>';
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li ><a href="yourbooks.php">Your Books</a></li>';
@@ -70,11 +71,11 @@ include 'config.php';
           $i=0;
           $product_id = array();
           $product_quantity = array();
-
-          $result = $mysqli->query("SELECT b.*, o.description, o.success FROM shareoffers o inner join sharebooks b on o.bookid = b.id
+          $userid = $_SESSION['id'];
+          $result = $mysqli->query("SELECT b.*, o.description, o.success FROM shareoffers o inner join sharebooks b on o.bookid = b.id  where o.userid = '$userid'
                                     UNION
                                     SELECT d.*, o.description, o.success FROM donateoffers o
-                                    inner join donatebooks d on o.bookid = d.id");
+                                    inner join donatebooks d on o.bookid = d.id where o.userid = '$userid'");
           if($result === FALSE){
             die(mysql_error());
           }
