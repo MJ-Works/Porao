@@ -69,7 +69,8 @@ include 'config.php';
       </section>
     </nav>
 
- <div id='search-box'>
+
+  <div id='search-box1'>
     <form method="POST" action='products_search.php' id='search-form' >
       <input id='search-text'  name ="search" placeholder='Search...' type='text'/>
         <button id='search-button' type='submit'>                     

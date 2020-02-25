@@ -119,37 +119,38 @@ include 'config.php';
               $i++;
             }
         }
-        // if($result1){
+        if($result1){
 
-        //   while($obj = $result1->fetch_object()) {
-        //     echo '<div style="background-color:#CCDADA; margin-top:30px;" class="columns">';
-        //     echo '<p ><h3 style="color: #000000;text-align:center;"><b>'.$obj->title.'</h3></b></p>';
-        //     echo '<img src="images/products/'.$obj->image.'". width=250px height=250px align="left" hspace="20" />';
-        //     if(isset($obj->price))
-        //         echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Sell/Exchange</p>';
-        //     else echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Donation</p>';
-        //     echo '<p style="color: #000000;margin-top:10px;"> <strong>Author</strong>: '.$obj->author.'</p>';
-        //     echo '<p style="color: #000000;margin-top:10px;"> <strong>Description</strong>: <br />'.$obj->description.'</p>';
-        //     if(isset($obj->price)) echo '<p style="color: #000000"><strong>Asking Price</strong> : '.$obj->price.'</p>';
-        //     if(isset($obj->price)) echo '<p style="color: #000000"><strong>Available Units</strong> : '.$obj->qty.'</p>';
-        //     echo '<p style="color: #000000"><strong>Category</strong> : '.$obj->category.'</p>';
+          while($obj = $result1->fetch_object()) {
+            echo '<div style="background-color:#CCDADA; margin-top:30px;" class="columns">';
+            echo '<p ><h3 style="color: #000000;text-align:center;"><b>'.$obj->title.'</h3></b></p>';
+            echo '<img src="images/products/'.$obj->image.'". width=250px height=250px align="left" hspace="20" />';
+            if(isset($obj->price))
+                echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Sell/Exchange</p>';
+            else echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Donation</p>';
+            echo '<p style="color: #000000;margin-top:10px;"> <strong>Author</strong>: '.$obj->author.'</p>';
+            echo '<p style="color: #000000;margin-top:10px;"> <strong>Description</strong>: <br />'.$obj->description.'</p>';
+            if(isset($obj->price)) echo '<p style="color: #000000"><strong>Asking Price</strong> : '.$obj->price.'</p>';
+            if(isset($obj->price)) echo '<p style="color: #000000"><strong>Available Units</strong> : '.$obj->qty.'</p>';
+            echo '<p style="color: #000000"><strong>Category</strong> : '.$obj->category.'</p>';
 
-        //     // <form>
-        //     //    <input type="text" id="number" value="0"/>
-        //     //    <input type="button" onclick="incrementValue()" value="Increment Value" />
-        //     // </form>
+            // <form>
+            //    <input type="text" id="number" value="0"/>
+            //    <input type="button" onclick="incrementValue()" value="Increment Value" />
+            // </form>
 
-        //     if(isset($_SESSION['username']))
-        //         echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-        //     // else {
-        //     //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
-        //     // }
-        //     echo '<p> <br/><br/><br/></p>';
-        //     echo '</div> ';
+            if(isset($_SESSION['username']))
+                echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+            // else {
+            //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
+            // }
+            echo '<p> <br/><br/><br/></p>';
+            echo '</div> ';
 
-        //     $i++;
-        //   }
-      //}
+            $i++;
+          }
+      }
+
 
           $_SESSION['product_id'] = $product_id;
 
