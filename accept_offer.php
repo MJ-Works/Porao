@@ -11,7 +11,7 @@ include 'config.php';
 // header("location:cart.php");
 ?>
 
-    <!doctype html>
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -19,15 +19,6 @@ include 'config.php';
     <title>Register || Online book Sharing Platform "Porao"</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-    <style>
-          body {
-         background-image: url("images/books.jpg");
-         background-repeat: no-repeat;
-         background-attachment: fixed;
-         background-position: top; 
-         background-size: 1920px 1080px;
-      }
-      </style>
   </head>
   <body>
 
@@ -45,7 +36,7 @@ include 'config.php';
           <?php
           if(isset($_SESSION['username'])){
             echo '<li><a href="index.php">Home</a></li>';
-            echo '<li class="active"><a href="books.php">Books</a></li>';
+            echo '<li><a href="books.php">Books</a></li>';
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
             echo '<li><a href="requests.php">Your Requests</a></li>';
@@ -63,17 +54,43 @@ include 'config.php';
       </section>
     </nav>
 
-    <div class="row" style="margin-top:20px;">
-      <div class="small-12">
+
+
+    <div class="col-md-6">
+		<table class="table table-bordered table-condensed" style = "margin:20px">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Description</th>
+            <th>Accept</th>
+        </tr>
         <?php
           $i=0;
           $product_id = array();
           $product_quantity = array();
           $userid = $_SESSION['id'];
+          $bookid = $_GET['bookid'];
+          $type = $_GET['type'];
 
-          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks where isSold = 0
-            UNION
-            SELECT *, 'share' as type FROM sharebooks where qty > 0  and isSold = 0");
+          if($type === "share" ) {
+            $result = $mysqli->query("SELECT o.id, o.bookid, b.qty, o.description, u.address, u.fname, u.lname, u.email FROM `shareoffers` o
+                                      inner join users u
+                                      on u.id = o.userid
+                                      inner join sharebooks b
+                                      on b.id = $bookid
+                                      where b.isSold = 0 and
+                                      o.success = 0");
+          }
+          else {
+            $result = $mysqli->query("SELECT o.id, o.bookid, o.description, u.address, u.fname, u.lname, u.email FROM `donateoffers` o
+                                      inner join users u
+                                      on u.id = o.userid
+                                      inner join donatebooks b
+                                      on b.id = $bookid
+                                      where b.isSold = 0 and
+                                      o.success = 0");
+          }
 
           if($result === FALSE){
             die(mysql_error());
@@ -82,31 +99,15 @@ include 'config.php';
           if($result){
 
             while($obj = $result->fetch_object()) {
-              echo '<div style="background-color:#CCDADA; margin-top:30px;" class="columns">';
-              echo '<p ><h3 style="color: #000000;text-align:center;"><b>'.$obj->title.'</h3></b></p>';
-              echo '<img src="images/products/'.$obj->image.'". width=250px height=250px align="left" hspace="20" />';
-              if(isset($obj->price))
-                  echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Sell/Exchange</p>';
-              else echo '<p style="color: #000000;margin-top:10px;"> <strong>Type</strong>: Donation</p>';
-              echo '<p style="color: #000000;margin-top:10px;"> <strong>Author</strong>: '.$obj->author.'</p>';
-              echo '<p style="color: #000000;margin-top:10px;"> <strong>Description</strong>: <br />'.$obj->description.'</p>';
-              if(isset($obj->price)) echo '<p style="color: #000000"><strong>Asking Price</strong> : '.$obj->price.'</p>';
-              if(isset($obj->price)) echo '<p style="color: #000000"><strong>Available Units</strong> : '.$obj->qty.'</p>';
-              echo '<p style="color: #000000"><strong>Category</strong> : '.$obj->category.'</p>';
-
-              // <form>
-              //    <input type="text" id="number" value="0"/>
-              //    <input type="button" onclick="incrementValue()" value="Increment Value" />
-              // </form>
-
-              if(isset($_SESSION['username']) && $userid != $obj->userid)
-                  echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="Place Request" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
-              // else {
-              //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
-              // }
-              echo '<p> <br/><br/><br/></p>';
-              echo '</div> ';
-
+                $quantity = isset($obj->qty) ? $obj->qty : 0;
+                if($quantity > 0) $quantity = $quantity - 1;
+                echo '<tr>';
+                echo '<td>'.$obj->fname.'</td>';
+                echo '<td>'.$obj->email.'</td>';
+                echo '<td>'.$obj->address.'</td>';
+                echo '<td>'.$obj->description.'</td>';
+                echo '<td><p><a href="submit_accept_offer.php?qty='.$quantity.'&id='.$obj->id.'&bookid='.$obj->bookid.'&type='.$type.'"><input type="submit" value="Accept" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p><td>';
+                echo '</tr>';
               $i++;
             }
 
@@ -118,13 +119,10 @@ include 'config.php';
           echo '</div>';
           echo '</div>';
           ?>
+        </table>
 
         <div class="row" style="margin-top:10px;">
           <div class="small-12">
-
-
-
-
         <footer style="margin-top:10px;">
            <p style="text-align:center; font-size:0.8em;color: #000000">&copy; Book Rentals pvt ltd.</p>
         </footer>

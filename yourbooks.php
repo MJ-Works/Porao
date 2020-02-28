@@ -67,7 +67,7 @@ $userid = $_SESSION['id'];
           $product_id = array();
           $product_quantity = array();
 
-          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks where userid = $userid union SELECT *, 'share' as type from sharebooks where userid =  $userid");
+          $result = $mysqli->query("SELECT *, 'donate' as type FROM donatebooks where userid = $userid and isSold = 0 union SELECT *, 'share' as type from sharebooks where userid =  $userid  and isSold = 0");
           if($result === FALSE){
             die(mysql_error());
           }
@@ -93,7 +93,7 @@ $userid = $_SESSION['id'];
               // </form>
 
               if(isset($_SESSION['username'])) {
-                  echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="See Requests" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+                  echo '<p><a href="accept_offer.php?bookid='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="See Requests" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
                   echo '<p><a href="deletebook.php?bookid='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="Delete Book" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
               }
               // else {

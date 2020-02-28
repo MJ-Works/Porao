@@ -48,6 +48,7 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `city`, `pin`, `email`, 
 CREATE TABLE IF NOT EXISTS `donatebooks` (
   `id` int(11) auto_increment ,
   `userid` int,
+  `isSold` int DEFAULT 0,
   `title` varchar(255) ,
   `author` varchar(255) ,
   `edition` varchar(255)  ,
@@ -65,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `donatebooks` (
 CREATE TABLE IF NOT EXISTS `sharebooks` (
   `id` int(11) auto_increment ,
   `userid` int,
+   `isSold` int DEFAULT 0,
   `title` varchar(255) ,
   `author` varchar(255) ,
   `edition` varchar(255)  ,
