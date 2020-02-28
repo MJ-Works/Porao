@@ -10,7 +10,7 @@ if(!isset($_SESSION["username"])) {
 }
 
 // if($_SESSION["type"]==="admin") {
-//   header("location:home.php");
+//   header("location:index.php");
 // }
 
 include 'config.php';

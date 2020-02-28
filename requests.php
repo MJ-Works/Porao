@@ -35,7 +35,7 @@ include 'config.php';
         <ul class="right">
           <?php
           if(isset($_SESSION['username'])){
-            echo '<li><a href="home.php">Home</a></li>';
+            echo '<li><a href="index.php">Home</a></li>';
             echo '<li><a href="books.php">Books</a></li>';
             echo '<li><a href="ShareBookAdd.php">Share Book</a></li>';
             echo '<li><a href="DonateBookAdd.php">Donate Book</a></li>';
