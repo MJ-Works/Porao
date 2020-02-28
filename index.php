@@ -15,7 +15,7 @@ include 'config.php';
   <head>
   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Rental Store</title>
+    <title>Book Sharing Platform</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,7 +80,7 @@ include 'config.php';
       <div class="small-12">
 
         <footer style="margin-top:300px;">
-           <p style="text-align:center; font-size:0.8em;color: #FFFFFF">&copy; Book Rental Store. All Rights Reserved.</p>
+           <p style="text-align:center; font-size:0.8em;color: #FFFFFF">&copy; Book Sharing Platform. All Rights Reserved.</p>
         </footer>
 
       </div>
