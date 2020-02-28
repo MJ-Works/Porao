@@ -92,8 +92,10 @@ $userid = $_SESSION['id'];
               //    <input type="button" onclick="incrementValue()" value="Increment Value" />
               // </form>
 
-              if(isset($_SESSION['username']))
+              if(isset($_SESSION['username'])) {
                   echo '<p><a href="offer.php?id='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="See Requests" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+                  echo '<p><a href="deletebook.php?bookid='.$obj->id.'&type='.$obj->type.'"><input type="submit" value="Delete Book" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a></p>';
+              }
               // else {
               //   echo '<p style="color: #000000;"><pre>                                                      <b>OUT OF STOCK!</b> </pre></p>';
               // }
